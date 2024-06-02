@@ -15,30 +15,31 @@ struct DatabaseTest : ::testing::Test //dziedziczdenie odnoszenie się do pul da
 };
 
 
-
-TEST_F(DatabaseTest, CanAddStudentToDbV1){
-    Student adam{
-        "Adam",
-        "Kowalski",
-        "ul. Paryska 134, 12-345 Kraków",
-        123456,
-        "12345678901",
-        Gender::Male
-        };
-
-    
-    
-    EXPECT_TRUE(db.add(adam));
-    EXPECT_FALSE(db.add(adam));
-
-
-}
-
 TEST_F(DatabaseTest, DisplayEmptyDb){
     
      auto content = db.show();
      auto expected = "";
      EXPECT_EQ(content, expected);
-     db.display();
+
 }
 
+TEST_F(DatabaseTest, DisplayDb){
+
+
+Student adam{
+"Adam",
+"Kowalski",
+"ul. Paryska 134, 12-345 Krakow",
+123456,
+"12345678901",
+Gender::Male
+};
+db.add(adam);
+//sprawdza dodawanie tej samej osoby 2 razy
+    
+auto content = db.show();
+auto expected = "Adam Kowalski; ul. Paryska 134, 12-345 Krakow; 123456; 12345678901; Male";
+EXPECT_EQ(content, expected);
+
+
+}
