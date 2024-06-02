@@ -26,3 +26,12 @@ TEST(CheckStructure, CanAddStudentToDbV1){
 
 
 }
+
+TEST(DisplayDb, DisplayEmptyDb){
+     Database db;
+     auto content = db.show();
+     auto expected = "";
+     EXPECT_EQ(content, expected);
+     db.display();
+}
+
