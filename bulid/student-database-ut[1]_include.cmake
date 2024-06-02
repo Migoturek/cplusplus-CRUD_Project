@@ -1,0 +1,5 @@
+if(EXISTS "/home/michal/Desktop/workspace/Student-Database/bulid/student-database-ut[1]_tests.cmake")
+  include("/home/michal/Desktop/workspace/Student-Database/bulid/student-database-ut[1]_tests.cmake")
+else()
+  add_test(student-database-ut_NOT_BUILT student-database-ut_NOT_BUILT)
+endif()

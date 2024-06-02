@@ -1,0 +1,7 @@
+add_test( HelloTest.BasicAssertions /home/michal/Desktop/workspace/Student-Database/bulid/student-database-ut [==[--gtest_filter=HelloTest.BasicAssertions]==] --gtest_also_run_disabled_tests)
+set_tests_properties( HelloTest.BasicAssertions PROPERTIES WORKING_DIRECTORY /home/michal/Desktop/workspace/Student-Database/bulid SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+add_test( DatabaseTest.DisplayEmptyDb /home/michal/Desktop/workspace/Student-Database/bulid/student-database-ut [==[--gtest_filter=DatabaseTest.DisplayEmptyDb]==] --gtest_also_run_disabled_tests)
+set_tests_properties( DatabaseTest.DisplayEmptyDb PROPERTIES WORKING_DIRECTORY /home/michal/Desktop/workspace/Student-Database/bulid SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+add_test( DatabaseTest.DisplayDb /home/michal/Desktop/workspace/Student-Database/bulid/student-database-ut [==[--gtest_filter=DatabaseTest.DisplayDb]==] --gtest_also_run_disabled_tests)
+set_tests_properties( DatabaseTest.DisplayDb PROPERTIES WORKING_DIRECTORY /home/michal/Desktop/workspace/Student-Database/bulid SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+set( student-database-ut_TESTS HelloTest.BasicAssertions DatabaseTest.DisplayEmptyDb DatabaseTest.DisplayDb)
