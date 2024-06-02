@@ -9,7 +9,14 @@ TEST(HelloTest, BasicAssertions) {
   EXPECT_EQ(7 * 6, 42);
 }
 
-TEST(CheckStructure, CanAddStudentToDbV1){
+struct DatabaseTest : ::testing::Test //dziedziczdenie odnoszenie się do pul daje to framework gtest 
+{
+  Database db;
+};
+
+
+
+TEST_F(DatabaseTest, CanAddStudentToDbV1){
     Student adam{
         "Adam",
         "Kowalski",
@@ -19,7 +26,7 @@ TEST(CheckStructure, CanAddStudentToDbV1){
         Gender::Male
         };
 
-    Database db;
+    
     
     EXPECT_TRUE(db.add(adam));
     EXPECT_FALSE(db.add(adam));
@@ -27,8 +34,8 @@ TEST(CheckStructure, CanAddStudentToDbV1){
 
 }
 
-TEST(DisplayDb, DisplayEmptyDb){
-     Database db;
+TEST_F(DatabaseTest, DisplayEmptyDb){
+    
      auto content = db.show();
      auto expected = "";
      EXPECT_EQ(content, expected);
